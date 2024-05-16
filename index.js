@@ -22,7 +22,15 @@ app.listen(PORT, (req, res) => {
 })
 
 mongoose
-  .connect(process.env.MONGO_URI)
+  .connect(process.env.MONGO_URI, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+    serverSelectionTimeoutMS: 5000, // Keep trying to send operations for 5 seconds
+    socketTimeoutMS: 45000, // Close sockets after 45 seconds of inactivity
+    connectTimeoutMS: 30000, // 30 seconds connection timeout
+    bufferCommands: false, // Disable Mongoose buffering
+  })
+
   .then(() => {
     console.log('database connected')
   })
