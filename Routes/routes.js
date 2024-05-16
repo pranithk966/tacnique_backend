@@ -10,12 +10,12 @@ const {
 
 Router.get('/one', getUsers)
 
-// Router.get('/:id', getUser)
+Router.get('/:id', getUser)
 
-// Router.post('/', addUser)
+Router.post('/', addUser)
 
-// Router.patch('/:id', updateUser)
+Router.patch('/:id', updateUser)
 
-// Router.delete('/:id', deleteUser)
+Router.delete('/:id', deleteUser)
 
 module.exports = Router
