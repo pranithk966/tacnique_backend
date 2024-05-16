@@ -3,7 +3,6 @@ const mongoose = require('mongoose')
 const users = require('../Model/model')
 
 const getUsers = async (req, res) => {
-  // res.json({ mssge: 'users' })
   const user = await users.find({}).sort({ createdAt: -1 })
 
   res.status(200).json(user)
